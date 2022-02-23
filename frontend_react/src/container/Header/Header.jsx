@@ -6,10 +6,11 @@ import { images } from "../../constants";
 import "./Header.scss";
 const scaleVariants = {
   whileInView: {
-    scale: [0, 1],
+    // scale: [0, 1],
     opacity: [0, 1],
     transition: {
-      duration: 1,
+      duration: 3,
+      delayChildren: 0.8,
       ease: "easeInout",
     },
   },
@@ -17,7 +18,7 @@ const scaleVariants = {
 
 const Header = () => {
   return (
-    <div className="app__header app__flex">
+    <div id="home" className="app__header app__flex">
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 3 }}
@@ -55,8 +56,10 @@ const Header = () => {
       </motion.div>
 
       <motion.div
-        variants={scaleVariants}
-        whileInView={scaleVariants.whileInView}
+        // variants={scaleVariants}
+        // whileInView={scaleVariants.whileInView}
+        whileInView={{ x: [100, 0], opacity: [0, 1] }}
+        transition={{ duration: 3, delayChildren: 0.8 }}
         className="app__header-circles"
       >
         {[images.flutter, images.redux, images.sass].map((circle, index) => (
