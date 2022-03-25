@@ -1,14 +1,19 @@
 import React from "react";
-
-const NavigationDots = ({ active }) => {
+import { useContext } from "react";
+import { sectionContext } from "../App";
+const NavigationDots = () => {
+  const { currentSection, setCurrentSection } = useContext(sectionContext);
   return (
     <div className="app__navigation">
-      {["home", "about", "work", "skills", "contact"].map((item, index) => (
+      {["home", "about", "work", "contact"].map((item, index) => (
         <a
           href={`#${item}`}
-          key={item + index}
+          key={index}
           className="app__navigation-dot"
-          style={active === item ? { backgroundcolor: "#313BAC" } : {}}
+          style={{ backgroundColor: currentSection === index ? "#313BAC" : "" }}
+          onClick={(e) => {
+            setCurrentSection(index);
+          }}
         ></a>
       ))}
     </div>

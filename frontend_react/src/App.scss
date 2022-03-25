@@ -1,6 +1,9 @@
 .app {
   background-color: var(--primary-color);
   font-family: var(--font-base);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
 }
 
 .app__whitebg {
@@ -12,10 +15,12 @@
 }
 
 .app__container {
-  width: 100%;
-  min-height: 100vh;
-
+  width: 100vw;
+  min-height: 90vh;
+  padding-top: 10vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
 }
 
@@ -29,7 +34,7 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
 
   @media screen and (max-width: 450px) {
     padding: 4rem 1rem 2rem;
@@ -54,6 +59,7 @@
 .head-text {
   font-size: 2.75rem;
   font-weight: 800;
+
   text-align: center;
   color: var(--black-color);
   text-transform: capitalize;
@@ -149,7 +155,12 @@
 }
 
 .app__navigation {
+  position: fixed;
   display: flex;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -163,7 +174,7 @@
     background-color: #cbcbcb;
     margin: 0.5rem;
 
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     &:hover {
       background-color: var(--secondary-color);

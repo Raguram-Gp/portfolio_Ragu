@@ -3,23 +3,11 @@ import { motion } from "framer-motion";
 import { AppWrap } from "../../wrapper";
 
 import { images } from "../../constants";
-
 import "./Header.scss";
-const scaleVariants = {
-  whileInView: {
-    // scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 3,
-      delayChildren: 0.8,
-      ease: "easeInout",
-    },
-  },
-};
 
 const Header = () => {
   return (
-    <div className="app__header app__flex">
+    <div className="app__header app__flex" style={{ paddingTop: "0rem" }}>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 3 }}
@@ -45,14 +33,14 @@ const Header = () => {
         transition={{ duration: 3, delayChildren: 0.8 }}
         className="app__header-img"
       >
-        <img src={images.profile} alt="profile_bg" />;
+        <img src={images.profile1} alt="profile_bg" />
         <motion.img
           whileInView={{ scale: [0, 1] }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="app__header-img"
+          className="app__header-img  overlay_circle"
           src={images.circle}
           alt="profile_circle"
-          className="overlay_circle"
+          // className="overlay_circle"
         ></motion.img>
       </motion.div>
 
@@ -73,4 +61,4 @@ const Header = () => {
   );
 };
 
-export default AppWrap(Header, "home");
+export default AppWrap(Header, "home", 0);

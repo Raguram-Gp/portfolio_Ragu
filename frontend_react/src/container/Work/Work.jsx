@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { AiFillEye, AiFillGithub } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { sectionContext } from "../../App";
 import { images } from "../../constants";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./Work.scss";
+import ReactVisibilitySensor from "react-visibility-sensor-v2";
 
 const works = [
   {
@@ -51,14 +53,20 @@ const works = [
 ];
 
 const Work = () => {
+  const { setCurrentSection } = useContext(sectionContext);
   return (
-    <>
-      <h2 className="head-text">
-        My Creative <span>Portfolio</span> Section
-      </h2>
-
-      <div className="app__work-filter"></div>
-
+    <div className="work-class">
+      <ReactVisibilitySensor
+        onChange={(isVisible) => {
+          if (isVisible) {
+            setCurrentSection(2);
+          }
+        }}
+      >
+        <h2 className="head-text">
+          My Creative <span>Portfolio</span> Section
+        </h2>
+      </ReactVisibilitySensor>
       <motion.div
         // animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
@@ -78,7 +86,7 @@ const Work = () => {
                 }}
                 className="app__work-hover app__flex"
               >
-                <a href={work.projectLink} target="_blank">
+                <a href={work.projectLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -88,7 +96,7 @@ const Work = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
-                <a href={work.codeLink} target="_blank">
+                <a href={work.codeLink} target="_blank" rel="noreferrer">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -106,20 +114,12 @@ const Work = () => {
               <p className="p-text" style={{ marginTop: 10 }}>
                 {work.description}
               </p>
-
-              {/* <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
-              </div> */}
             </div>
           </div>
         ))}
       </motion.div>
-    </>
+    </div>
   );
 };
 
-export default AppWrap(
-  MotionWrap(Work, "app__works"),
-  "work",
-  "app__primarybg"
-);
+export default AppWrap(MotionWrap(Work, "app__works"), "work", 2);

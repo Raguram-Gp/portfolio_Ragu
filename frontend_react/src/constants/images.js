@@ -35,7 +35,13 @@ import nb from "../assets/nb.png";
 import skype from "../assets/skype.png";
 import spotify from "../assets/spotify.png";
 import waving_hand from "../assets/waving_hand.gif";
-export default {
+import contact from "../assets/contact.png";
+import profile1 from "../assets/profile1.jpg";
+import contact1 from "../assets/contact1.svg";
+import Raguram from "../assets/Raguram.png";
+const images = {
+  Raguram,
+  contact1,
   email,
   mobile,
   api,
@@ -70,4 +76,8 @@ export default {
   skype,
   spotify,
   waving_hand,
+  contact,
+  profile1,
 };
+
+export default images;
