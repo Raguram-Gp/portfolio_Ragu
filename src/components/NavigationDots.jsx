@@ -14,7 +14,7 @@ const NavigationDots = () => {
           onClick={(e) => {
             setCurrentSection(index);
           }}
-        ></a>
+        />
       ))}
     </div>
   );

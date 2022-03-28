@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BsInstagram,
-  BsGithub,
-  BsLinkedin,
-  BsTelephoneForwardFill,
-} from "react-icons/bs";
+import { BsInstagram, BsGithub, BsTelephoneForwardFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { AppWrap } from "../../wrapper";
 import { images } from "../../constants";
@@ -47,7 +42,10 @@ const Footer = ({ setCurrentSection }) => {
           </h4>
 
           <h4 className="Social-text">
-            <a href="https://www.google.com" className="link-text">
+            <a
+              href="https://www.instagram.com/raguram_hb"
+              className="link-text"
+            >
               <div className="svg">
                 <BsInstagram />
               </div>
@@ -56,21 +54,12 @@ const Footer = ({ setCurrentSection }) => {
           </h4>
 
           <h4 className="Social-text">
-            <a href="https://www.google.com" className="link-text">
+            <a href=" https://www.github.com/raguram-gp" className="link-text">
               <div className="svg">
                 <BsGithub />
               </div>
             </a>
             Github
-          </h4>
-
-          <h4 className="Social-text">
-            <a href="https://www.google.com" className="link-text">
-              <div className="svg">
-                <BsLinkedin />
-              </div>
-            </a>
-            Linked In
           </h4>
         </div>
       </motion.div>

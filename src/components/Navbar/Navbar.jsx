@@ -1,13 +1,10 @@
 import React, { useState, useContext } from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
-import { motion } from "framer-motion";
 import { sectionContext } from "../../App";
 
 import "./Navbar.scss";
 import { images } from "../../constants";
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
   const { currentSection, setCurrentSection } = useContext(sectionContext);
   return (
     <nav className="app__navbar">
